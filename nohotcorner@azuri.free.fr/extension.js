@@ -49,10 +49,10 @@ function init() {
 }
 
 function enable() {
-    if(ExtensionUtils.versionCheck(['3.6'], Config.PACKAGE_VERSION)) {
+    if (ExtensionUtils.versionCheck(['3.6'], Config.PACKAGE_VERSION)) {
         _hide_hot_corners_36();
         _id = Main.layoutManager.connect('monitors-changed', _hide_hot_corners_36);
-    } else if(ExtensionUtils.versionCheck(['3.4'], Config.PACKAGE_VERSION)) {
+    } else if (ExtensionUtils.versionCheck(['3.4'], Config.PACKAGE_VERSION)) {
         _hide_hot_corners_34();
         _id = Main.layoutManager.connect('monitors-changed', _hide_hot_corners_34);
     } else {
