@@ -1,0 +1,5 @@
+# Ignore final packages etc.
+*.zip
+
+# Temporary Ignore List
+
