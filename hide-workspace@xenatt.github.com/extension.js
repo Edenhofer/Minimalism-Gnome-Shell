@@ -10,7 +10,7 @@ const init = function () {
 
 const hideVisible = new Lang.Class({
     Name: 'hideWorkspace.hideVisible',
-    
+
     _init: function() {
         //old solution
         //thumbnailsBoxOp = Main.overview._controls._thumbnailsSlider.actor.opacity;
