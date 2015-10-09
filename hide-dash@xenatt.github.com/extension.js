@@ -10,7 +10,7 @@ const init = function() {
 }
 
 const dashVisible = new Lang.Class({
-    Name: 'hideDash.dashVisible',
+	Name: 'hideDash.dashVisible',
 
 	_init: function() {
 		this.observer = null;
@@ -19,12 +19,12 @@ const dashVisible = new Lang.Class({
 		this.old_x = Main.overview.viewSelector.actor.x;
 		this.old_width = Main.overview.viewSelector.actor.get_width();
 	},
-	
+
 	enable: function() {
 		// global.log("enable hide-dash");
 		this.observer = Main.overview.connect("showing", Lang.bind(this, this._hide));
 	},
-	
+
 	disable: function() {
 		// global.log("disable hide-dash");
 		Main.overview.disconnect(this.observer);
@@ -47,5 +47,3 @@ const dashVisible = new Lang.Class({
 		Main.overview.viewSelector.actor.queue_redraw();
 	}
 });
-
-
