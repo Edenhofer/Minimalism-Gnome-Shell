@@ -1,21 +1,21 @@
 {
-  "description": "Fix the dash's and overview search's behavior when you click on an already running icon. The default behaviour is to switch to it, this extension changes that to lanch a new instance instead. It also always open a new window when launching applications from the Overview Search when typing the application name and pressing ENTER (rather than using the mouse).",
-  "name": "Dash And Overview Click Fix",
-  "shell-version": [
-    "3.2",
-    "3.4",
-    "3.6",
-    "3.10",
-	"3.12",
-	"3.14",
-    "3.16",
-    "3.18"
-  ],
-  "url" : "https://github.com/grossetti/Gnome-Shell-Extensions",
-  "uuid": "DashClickFix@evotex.ch",
-  "original-author": [
-    "Gabriel Rossetti",
-    "Rich Sedman"
-  ],
-  "version": 1
+    "description": "Fix the dash's and overview search's behavior when you click on an already running icon. The default behaviour is to switch to it, this extension changes that to lanch a new instance instead. It also always open a new window when launching applications from the Overview Search when typing the application name and pressing ENTER (rather than using the mouse).",
+    "name": "Dash And Overview Click Fix",
+    "shell-version": [
+        "3.2",
+        "3.4",
+        "3.6",
+        "3.10",
+        "3.12",
+        "3.14",
+        "3.16",
+        "3.18"
+    ],
+    "url" : "https://github.com/grossetti/Gnome-Shell-Extensions",
+    "uuid": "DashClickFix@evotex.ch",
+    "original-author": [
+        "Gabriel Rossetti",
+        "Rich Sedman"
+    ],
+    "version": 1
 }
