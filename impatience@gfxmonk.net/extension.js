@@ -58,4 +58,3 @@ Ext.prototype.set_speed = function(new_speed) {
 function init() {
 	return new Ext();
 };
-
