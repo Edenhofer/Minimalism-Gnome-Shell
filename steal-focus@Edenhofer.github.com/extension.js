@@ -4,22 +4,22 @@ const Shell = imports.gi.Shell;
 const Lang = imports.lang;
 
 function StealMyFocus() {
-    this._init();
+	this._init();
 }
 
 StealMyFocus.prototype = {
-    _init : function() {
-        this._tracker = Shell.WindowTracker.get_default();
-        this._handlerid = global.display.connect('window-demands-attention', Lang.bind(this, this._onWindowDemandsAttention));
-    },
+	_init : function() {
+		this._tracker = Shell.WindowTracker.get_default();
+		this._handlerid = global.display.connect('window-demands-attention', Lang.bind(this, this._onWindowDemandsAttention));
+	},
 
-    _onWindowDemandsAttention: function(display, window) {
-        Main.activateWindow(window);
-    },
+	_onWindowDemandsAttention: function(display, window) {
+		Main.activateWindow(window);
+	},
 
-    destroy: function () {
-        global.display.disconnect(this._handlerid);
-    }
+	destroy: function () {
+		global.display.disconnect(this._handlerid);
+	}
 }
 
 let stealmyfocus;
@@ -28,9 +28,9 @@ function init() {
 }
 
 function enable() {
-    stealmyfocus = new StealMyFocus();
+	stealmyfocus = new StealMyFocus();
 }
 
 function disable() {
-    stealmyfocus.destroy();
+	stealmyfocus.destroy();
 }
