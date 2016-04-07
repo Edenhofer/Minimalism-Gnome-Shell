@@ -27,8 +27,8 @@ for path in $(git diff --name-only --cached); do
 	if [[ "${path}" =~ .*/metadata.json$ ]]; then
 		echo -e "\033[1;32m==>\e[39;1m Entering ${path%/metadata.json}...\e[0m"
 
-		# Ask whether a zipping is desired
-		zip_cmd="zip -r ../${path%/metadata.json}.zip *"
+		# Ask whether creating a zip file is desired
+		zip_cmd="zip -FSr ../${path%/metadata.json}.zip ."
 		echo -en "\e[34;1m  ->\e[39;1m Do you want to zip ${path%/metadata.json} using '${zip_cmd}'? [Y/n] \e[0m"
 		read -n1 user_input
 		echo
