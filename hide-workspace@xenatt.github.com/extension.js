@@ -14,8 +14,8 @@ const hideVisible = new Lang.Class({
 	_init: function() {
 		//old solution
 		//thumbnailsBoxOp = Main.overview._controls._thumbnailsSlider.actor.opacity;
-		tmp_getAlwaysZoomOut = ThumbnailsSlider._getAlwaysZoomOut;
-		tmp_getNonExpandedWidth = ThumbnailsSlider.getNonExpandedWidth;
+		var tmp_getAlwaysZoomOut = ThumbnailsSlider._getAlwaysZoomOut;
+		var tmp_getNonExpandedWidth = ThumbnailsSlider.getNonExpandedWidth;
 	},
 
 	enable: function() {
