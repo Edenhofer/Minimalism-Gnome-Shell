@@ -24,19 +24,19 @@ exec < /dev/tty
 
 # Iterate through folders with a metadata.json
 for path in $(git diff --name-only --cached); do
-	if [[ "${path}" =~ .*/metadata.json$ ]]; then
-		echo -e "\033[1;32m==>\e[39;1m Entering ${path%/metadata.json}...\e[0m"
+	if [[ -f "$(dirname ${path})/metadata.json" ]]; then
+		echo -e "\033[1;32m==>\e[39;1m Entering $(dirname ${path})...\e[0m"
 
 		# Ask whether creating a zip file is desired
-		zip_cmd="zip -FSr ../${path%/metadata.json}.zip ."
-		echo -en "\e[34;1m  ->\e[39;1m Do you want to zip ${path%/metadata.json} using '${zip_cmd}'? [Y/n] \e[0m"
+		zip_cmd="zip -FSr ../$(dirname ${path}).zip ."
+		echo -en "\e[34;1m  ->\e[39;1m Do you want to zip $(dirname ${path}) using '${zip_cmd}'? [Y/n] \e[0m"
 		read -n1 user_input
 		echo
 		if [[ ${user_input} =~ (Y|y) ]]; then
-			(cd ${path%/metadata.json} && ${zip_cmd})
+			(cd $(dirname ${path}) && ${zip_cmd})
 			# Ask to abort the commit in case the build fails
 			if [[ $? != 0 ]]; then
-				echo -en "\n\e[34;1m  ->\e[39;1m A failure occured while zipping ${path%/metadata.json}. Do you want to abort this commit? [Y/n] \e[0m"
+				echo -en "\n\e[34;1m  ->\e[39;1m A failure occured while zipping $(dirname ${path}). Do you want to abort this commit? [Y/n] \e[0m"
 				read -n1 user_input_two
 				echo
 				if [[ ${user_input_two} =~ (Y|y) ]]; then
