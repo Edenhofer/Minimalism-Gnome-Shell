@@ -12,10 +12,8 @@ const hideVisible = new Lang.Class({
 	Name: 'hideWorkspace.hideVisible',
 
 	_init: function() {
-		//old solution
-		//thumbnailsBoxOp = Main.overview._controls._thumbnailsSlider.actor.opacity;
-		var tmp_getAlwaysZoomOut = ThumbnailsSlider._getAlwaysZoomOut;
-		var tmp_getNonExpandedWidth = ThumbnailsSlider.getNonExpandedWidth;
+		this.tmp_getAlwaysZoomOut = ThumbnailsSlider._getAlwaysZoomOut;
+		this.tmp_getNonExpandedWidth = ThumbnailsSlider.getNonExpandedWidth;
 	},
 
 	enable: function() {
@@ -24,7 +22,7 @@ const hideVisible = new Lang.Class({
 	},
 
 	disable: function() {
-		ThumbnailsSlider._getAlwaysZoomOut = tmp_getAlwaysZoomOut;
-		ThumbnailsSlider.getNonExpandedWidth = tmp_getNonExpandedWidth;
+		ThumbnailsSlider._getAlwaysZoomOut = this.tmp_getAlwaysZoomOut;
+		ThumbnailsSlider.getNonExpandedWidth = this.tmp_getNonExpandedWidth;
 	}
 });
