@@ -6,7 +6,7 @@ const ThumbnailsSlider = imports.ui.overviewControls.ThumbnailsSlider.prototype;
 
 const init = function () {
 	return new hideVisible();
-}
+};
 
 const hideVisible = new Lang.Class({
 	Name: 'hideWorkspace.hideVisible',
@@ -17,8 +17,8 @@ const hideVisible = new Lang.Class({
 	},
 
 	enable: function() {
-		ThumbnailsSlider._getAlwaysZoomOut = function () { return false; }
-		ThumbnailsSlider.getNonExpandedWidth = function () { return 0; }
+		ThumbnailsSlider._getAlwaysZoomOut = function () { return false; };
+		ThumbnailsSlider.getNonExpandedWidth = function () { return 0; };
 	},
 
 	disable: function() {
