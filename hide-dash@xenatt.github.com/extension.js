@@ -4,14 +4,15 @@ const Lang = imports.lang;
 const Main = imports.ui.main;
 const Config = imports.misc.config;
 
-function ShellVersionMatch(version) {
-	let match = false;
+function ShellVersionGet() {
+	let version = 0;
 	try {
-		match = Config.PACKAGE_VERSION.match(new RegExp(`^${version}`)) !== null;
+		// e.g. GNOME 3.38.1 yields version 38
+		version = Config.PACKAGE_VERSION.split(".").map(function(v) {return +v;})[1];
 	} catch(error) {
 		log('hide-dash | could not get shell version!');
 	}
-	return match;
+	return version;
 };
 
 // extension functions
@@ -27,10 +28,11 @@ const dashVisible = new Lang.Class({
 		this.isNewVersion = false;
 
 		// log('hide-dash init | shell version: ' + Config.PACKAGE_VERSION);
-		if (ShellVersionMatch('3.36')) {
+		let version = ShellVersionGet();
+		if (version > 34) {
 			this._dash = Main.overview.dash;
 			this.isNewVersion = true;
-		} else if (ShellVersionMatch('3.34')) {
+		} else if (version == 34) {
 			this._dash = Main.overview._dash;
 			this.isNewVersion = true;
 		} else {
