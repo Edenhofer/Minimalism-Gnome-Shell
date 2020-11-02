@@ -4,7 +4,7 @@ const Lang = imports.lang;
 const Main = imports.ui.main;
 const Config = imports.misc.config;
 
-function ShellVersionGet() {
+function getShellVersion() {
 	let version = 0;
 	try {
 		// e.g. GNOME 3.38.1 yields version 38
@@ -28,7 +28,7 @@ const dashVisible = new Lang.Class({
 		this.isNewVersion = false;
 
 		// log('hide-dash init | shell version: ' + Config.PACKAGE_VERSION);
-		let version = ShellVersionGet();
+		let version = getShellVersion();
 		if (version > 34) {
 			this._dash = Main.overview.dash;
 			this.isNewVersion = true;
